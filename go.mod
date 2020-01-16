@@ -1,4 +1,4 @@
-module github.com/jy5275/hello
+module github.com/jy5275/HelloGolang
 
 go 1.13
 
