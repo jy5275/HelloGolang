@@ -1,3 +1,6 @@
+/*
+	some init funcs...
+*/
 package p
 
 import "fmt"

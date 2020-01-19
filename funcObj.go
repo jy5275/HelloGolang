@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// Adder: Basic interface
 type Adder interface {
 	add(string) int
 }

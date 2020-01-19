@@ -1,3 +1,6 @@
+/* Package main is a test package
+ * Pretend there are some words...
+ */
 package main
 
 import (
@@ -15,4 +18,5 @@ func main() {
 	//funcObj()
 	//fibTest()
 	//mapTest()
+	deferTest()
 }
