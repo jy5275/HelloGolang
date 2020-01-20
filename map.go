@@ -12,6 +12,10 @@ func WordCount(s string) map[string]int {
 	for i := range strs {
 		m[strs[i]]++
 	}
+	newm := make(map[string]int)
+	for k, v := range m {
+		newm[k] = v
+	}
 	return m
 }
 
