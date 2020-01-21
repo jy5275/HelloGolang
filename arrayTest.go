@@ -15,15 +15,10 @@ func modifyArray(b [5]int) {
 func modifySlice(b []int, ret *[]int) {
 	for i := range b {
 		b[i] = 200 + i
-		*ret = append(*ret, b[i])
+		//*ret = append(*ret, b[i])	// Bad!
+		// 不要在方法里给切片append，因为这会造成底层数组的改变
+		// 不如返回一个新的slice
 	}
-}
-
-func MyAppend(in []int, data int) []int {
-	//slice := p
-	out := append(in, data)
-	//p = newslice
-	return out
 }
 
 func NewMakeTest() {
@@ -32,18 +27,15 @@ func NewMakeTest() {
 	modifyArray(*p)
 	fmt.Println(p, len(*p), cap(*p))
 
-	v := make([]int, 5)
+	a := make([]int, 5)
 	ret := make([]int, 0)
-	modifySlice(v, &ret)
-	exvs := v[:2]
-	fmt.Printf("%T, %d, %d, %v\n", exvs, len(exvs),
-		cap(exvs), exvs)
+	modifySlice(a, &ret)
+	s := a[:2]
+	fmt.Printf("%d, %d, %v\n", len(s), cap(s), s)
 	for i := 0; i < 10; i++ {
-		exvs = MyAppend(exvs, i)
-		//exvs = append(exvs, i)
-		fmt.Printf("%d, %d, %v\n", len(exvs),
-			cap(exvs), exvs)
-		fmt.Print(v, len(v), cap(v), "\n\n")
+		s = append(s, i)
+		fmt.Printf("%d, %d, %v\n", len(s), cap(s), s)
+		fmt.Print(a, len(a), cap(a), "\n\n")
 	}
 }
 
