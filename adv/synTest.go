@@ -19,7 +19,7 @@ func fibonacci(c, quit chan int) {
 	}
 }
 
-func fibTest() {
+func FibTest() {
 	c := make(chan int, 5)
 	quit := make(chan int, 1)
 	go fibonacci(c, quit)
