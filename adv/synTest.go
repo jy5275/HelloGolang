@@ -1,4 +1,4 @@
-package main
+package adv
 
 import (
 	"fmt"
@@ -21,7 +21,7 @@ func fibonacci(c, quit chan int) {
 
 func fibTest() {
 	c := make(chan int, 5)
-	quit := make(chan int)
+	quit := make(chan int, 1)
 	go fibonacci(c, quit)
 	time.Sleep(1000 * time.Millisecond)
 	fmt.Println("Main thread begin")
@@ -37,5 +37,5 @@ func fibTest() {
 		time.Sleep(50 * time.Millisecond)
 	}
 	quit <- 0
-	time.Sleep(10)
+	time.Sleep(350 * time.Millisecond)
 }

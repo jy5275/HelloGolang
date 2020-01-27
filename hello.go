@@ -5,7 +5,7 @@ package main
 
 import (
 	"fmt"
-
+	"./adv"
 	"github.com/google/go-cmp/cmp"
 	"github.com/jy5275/HelloGolang/morestrings"
 )
@@ -15,9 +15,10 @@ func main() {
 	fmt.Println(cmp.Diff("Hello, World", "Hello, Go"))
 	//netWorkTest()
 	//funcObj()
-	//fibTest()
+	adv.fibTest()
 	//stringTest()
-	NewMakeTest()
+	//NewMakeTest()
+	//array2D(3, 5)
 	//mapTest()
 	//deferTest()
 	//MarshalTest()

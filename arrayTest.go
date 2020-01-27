@@ -23,6 +23,9 @@ func modifySlice(b []int, ret *[]int) {
 
 func NewMakeTest() {
 	var p *[5]int
+	data := [...]int{0, 1, 2, 3, 4, 5, 6}
+	slice := data[1:4:5]
+	_ = slice
 	p = new([5]int) // Assign an array[5]
 	modifyArray(*p)
 	fmt.Println(p, len(*p), cap(*p))

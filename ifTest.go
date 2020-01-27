@@ -29,6 +29,7 @@ func (PhD) exam() {
 func (Coder) work() {
 	fmt.Println("Coding...")
 }
+
 func ifTest() {
 	//var s Student
 	p := PhD{}
