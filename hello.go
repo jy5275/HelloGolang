@@ -8,22 +8,31 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/jy5275/HelloGolang/adv"
 	"github.com/jy5275/HelloGolang/morestrings"
+	_ "net/http/pprof"
+	"runtime"
 )
 
 func main() {
 	fmt.Println(morestrings.ReverseRunes("Reversed hello"))
 	fmt.Println(cmp.Diff("Hello, World", "Hello, Go"))
-	//netWorkTest()
+	//adv.NetWorkTest()
 	//funcObj()
-	//adv.FibTest()
-	adv.CalcMain()
+	//MapTest()
 	//stringTest()
 	//NewMakeTest()
 	//array2D(3, 5)
 	//mapTest()
 	//deferTest()
-	//MarshalTest()
-	//UnmarshalTest()
+	//adv.MarshalTest()
+	//adv.UnmarshalTest()
 	//ifTest()
 	//sTest()
+
+	// Goroutine pratice
+	//adv.FibTest()
+	//adv.CalcMain()
+	//adv.CtxMain()
+	adv.SquareAndCube(589)
+	//adv.PCMain()
+	fmt.Println(runtime.NumGoroutine())
 }

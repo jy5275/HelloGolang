@@ -1,4 +1,4 @@
-package main
+package adv
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func netWorkTest() {
+func NetWorkTest() {
 	addr, e := net.ResolveTCPAddr("tcp4", "baidu.com:80")
 	CheckErr(e)
 	conn, e := net.DialTCP("tcp", nil, addr)
