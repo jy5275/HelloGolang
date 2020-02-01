@@ -48,6 +48,6 @@ func PCMain() {
 	}
 
 	time.Sleep(2 * time.Second)
-	close(exit)
-	wg.Wait() // wg 下等了两个 goroutine, 它们都结束 main 再继续
+	close(exit) // 往 exit 里边写入类型零值
+	wg.Wait()   // wg 下等了两个 goroutine, 它们都结束 main 再继续
 }

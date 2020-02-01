@@ -6,14 +6,14 @@ import (
 )
 
 // Send Only && Receive Only Channel
-func fibonacci(c chan<- int, quit <-chan int) {
+func fibonacci(c chan<- int, quit <-chan bool) {
 	x, y := 0, 1
 	for {
 		select {
 		case c <- x:
 			x, y = y, x+y
-		case <-quit:
-			fmt.Println("quit")
+		case t := <-quit:
+			fmt.Println("quit", t)
 			return
 		}
 		time.Sleep(200 * time.Millisecond)
@@ -22,7 +22,7 @@ func fibonacci(c chan<- int, quit <-chan int) {
 
 func FibTest() {
 	c := make(chan int, 5)
-	quit := make(chan int)
+	quit := make(chan bool)
 	go fibonacci(c, quit) // fib can send on `c` and receive on `quit`
 	time.Sleep(1000 * time.Millisecond)
 	fmt.Println("Main thread begin")
@@ -37,7 +37,7 @@ func FibTest() {
 		}
 		time.Sleep(50 * time.Millisecond)
 	}
-	quit <- 0
+	close(quit)
 	time.Sleep(350 * time.Millisecond)
 }
 

@@ -23,7 +23,7 @@ func modifySlice(b []int, ret *[]int) {
 
 func NewMakeTest() {
 	var p *[5]int
-	data := [...]int{0, 1, 2, 3, 4, 5, 6}
+	data := [...]int{0, 1, 2, 3, 4, 5, 6} // Array
 	slice := data[1:4:5]
 	_ = slice
 	p = new([5]int) // Assign an array[5]
@@ -32,7 +32,7 @@ func NewMakeTest() {
 
 	a := make([]int, 5)
 	ret := make([]int, 0)
-	modifySlice(a, &ret)
+	modifySlice(a, &ret) // Not safe! modify on another `a`
 	s := a[:2]
 	fmt.Printf("%d, %d, %v\n", len(s), cap(s), s)
 	for i := 0; i < 10; i++ {

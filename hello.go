@@ -5,11 +5,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/google/go-cmp/cmp"
-	"github.com/jy5275/HelloGolang/adv"
-	"github.com/jy5275/HelloGolang/morestrings"
 	_ "net/http/pprof"
 	"runtime"
+
+	"github.com/google/go-cmp/cmp"
+	"github.com/jy5275/HelloGolang/morestrings"
 )
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 	//adv.NetWorkTest()
 	//funcObj()
 	//MapTest()
-	//stringTest()
+	stringTest()
 	//NewMakeTest()
 	//array2D(3, 5)
 	//mapTest()
@@ -32,7 +32,7 @@ func main() {
 	//adv.FibTest()
 	//adv.CalcMain()
 	//adv.CtxMain()
-	adv.SquareAndCube(589)
+	//adv.SquareAndCube(589)
 	//adv.PCMain()
 	fmt.Println(runtime.NumGoroutine())
 }

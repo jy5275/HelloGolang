@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+// 自定义类型, 便于定义将方法包
+// Bytesize 底层仍是 float64, 只是多了一包方法
 type ByteSize float64
 
 var (
@@ -37,13 +39,17 @@ func (b ByteSize) String() string {
 }
 
 func stringTest() {
-	city := "第聂伯彼得罗\x80夫斯克"
-	cityr := []rune(city)
+	city := "美因河畔\x80法兰克福"
+	cityr := []rune(city) // rune 就是 Golang 的 char
 	fmt.Printf("%T, %q\n", cityr, cityr[:4])
 	for pos, ch := range cityr {
 		fmt.Printf("%#U starts at byte pos %v\n", ch, pos)
 	}
-	var t interface{} = city
+	var t interface{} = cityr[2]
+	r, ok := t.(int) // 安全的类型断言
+	if ok {
+		fmt.Println("r:", r)
+	}
 	switch t := t.(type) {
 	case bool:
 		fmt.Printf("boolean %t\n", t)
@@ -55,6 +61,10 @@ func stringTest() {
 		fmt.Printf("ptr to integer %d\n", *t)
 	case string:
 		fmt.Printf("string: %s\n", t)
+	case rune:
+		fmt.Printf("rune(char) %#U\n", t)
+	default:
+		fmt.Println("Unknown type")
 	}
 	var b ByteSize = 12341
 	fmt.Println(b)
