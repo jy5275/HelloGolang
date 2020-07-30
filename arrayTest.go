@@ -11,6 +11,7 @@ func modifyArray(b [5]int) {
 	}
 }
 
+
 // Visible to the caller, who shares the same referred array
 func modifySlice(b []int, ret *[]int) {
 	for i := range b {
