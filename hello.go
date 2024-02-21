@@ -7,22 +7,14 @@ import (
 	"fmt"
 	_ "net/http/pprof"
 	"runtime"
-
-	"github.com/google/go-cmp/cmp"
-	"github.com/jy5275/HelloGolang/morestrings"
 )
 
 func main() {
-	fmt.Println(morestrings.ReverseRunes("Reversed hello"))
-	fmt.Println(cmp.Diff("Hello, World", "Hello, Go"))
 	//adv.NetWorkTest()
 	//funcObj()
-	//MapTest()
-	stringTest()
+	//stringTest()
 	//NewMakeTest()
-	//array2D(3, 5)
-	//mapTest()
-	//deferTest()
+	deferTest()
 	//adv.MarshalTest()
 	//adv.UnmarshalTest()
 	//ifTest()

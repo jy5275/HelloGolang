@@ -41,18 +41,3 @@ func NewMakeTest() {
 		fmt.Print(a, len(a), cap(a), "\n\n")
 	}
 }
-
-func array2D(YSize, XSize int) {
-	picture := make([][]uint8, YSize)
-	pixels := make([]uint8, XSize*YSize)
-	for i := range picture {
-		picture[i], pixels = pixels[:XSize], pixels[XSize:]
-	}
-}
-
-func PrintArray(e ...int) {
-	for _, i := range e {
-		fmt.Printf("%d ", i)
-	}
-	fmt.Println()
-}
